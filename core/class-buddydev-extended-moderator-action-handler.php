@@ -45,7 +45,7 @@ class BuddyDev_Extended_Moderator_Action_Handler{
 		$admin_ids     = bp_group_admin_ids( $group, 'array' );
 
 		// If current user is not group moderator skip.
-		if ( ! in_array( get_current_user_id(), $moderator_ids ) ) {
+		if ( ! is_user_logged_in() || ! in_array( get_current_user_id(), $moderator_ids ) ) {
 			return;
 		}
 
